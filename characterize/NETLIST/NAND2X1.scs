@@ -1,0 +1,9 @@
+// NAND2X1
+simulator lang=spectre insensitive=yes
+global vss vdd
+subckt NAND2X1 Y A B vdd vss
+    M2  (net17 A vss vss)  nch w=2u l=1u
+    M1  (Y B net17 vss)  nch w=2u l=1u
+    M3  (Y A vdd vdd)  pch w=4u l=1u
+    M0  (Y B vdd vdd)  pch w=4u l=1u
+ends NAND2X1

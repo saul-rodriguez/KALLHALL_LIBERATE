@@ -1,0 +1,9 @@
+// include process libraries
+simulator lang=spectre insensitive=yes
+
+// Corners (N vs. P)
+// tt - typical - typical 
+// ff - fast - fast 
+// ss - slow - slow
+
+include "gpdk045_mos.scs" section=ss

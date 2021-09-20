@@ -1,0 +1,104 @@
+// Generated for: spectre
+// Generated on: Sep 20 19:22:39 2021
+// Design library name: KALLHALL_STD_LIB3
+// Design cell name: timing
+// Design view name: schematic
+simulator lang=spectre
+global 0 VSS! VDD!
+
+// Library name: KALLHALL_STD_LIB3
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 Y A inh_VDD inh_VSS
+    M1 (Y A inh_VSS inh_VSS) nch w=2u l=1u
+    M0 (Y A inh_VDD inh_VDD) pch w=4u l=1u
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: KALLHALL_STD_LIB3
+// Cell name: NOR2X1
+// View name: schematic
+subckt NOR2X1 Y A B inh_VDD inh_VSS
+    M2 (Y B inh_VSS inh_VSS) nch w=2u l=1u
+    M1 (Y A inh_VSS inh_VSS) nch w=2u l=1u
+    M3 (Y B net018 inh_VDD) pch w=4u l=1u
+    M0 (net018 A inh_VDD inh_VDD) pch w=4u l=1u
+ends NOR2X1
+// End of subcircuit definition.
+
+// Library name: KALLHALL_STD_LIB3
+// Cell name: BUFX2
+// View name: schematic
+subckt BUFX2 Y A inh_VDD inh_VSS
+    M2 (Y net022 inh_VSS inh_VSS) nch w=2u l=1u
+    M1 (net022 A inh_VSS inh_VSS) nch w=2u l=1u
+    M3 (Y net022 inh_VDD inh_VDD) pch w=4u l=1u
+    M0 (net022 A inh_VDD inh_VDD) pch w=4u l=1u
+ends BUFX2
+// End of subcircuit definition.
+
+// Library name: KALLHALL_STD_LIB3
+// Cell name: NAND2X1
+// View name: schematic
+subckt NAND2X1 Y A B inh_VDD inh_VSS
+    M2 (net17 A inh_VSS inh_VSS) nch w=2u l=1u
+    M1 (Y B net17 inh_VSS) nch w=2u l=1u
+    M3 (Y A inh_VDD inh_VDD) pch w=4u l=1u
+    M0 (Y B inh_VDD inh_VDD) pch w=4u l=1u
+ends NAND2X1
+// End of subcircuit definition.
+
+// Library name: KALLHALL_STD_LIB3
+// Cell name: DFFX1
+// View name: schematic
+subckt DFFX1 Q QN CK D inh_VDD inh_VSS
+    M26 (QN net058 inh_VSS inh_VSS) nch w=2u l=1u
+    M24 (net058 qbint inh_VSS inh_VSS) nch w=2u l=1u
+    M22 (Q qbint inh_VSS inh_VSS) nch w=2u l=1u
+    M21 (n30 CKb net053 inh_VSS) nch w=2u l=1u
+    M20 (net053 qbint inh_VSS inh_VSS) nch w=2u l=1u
+    M16 (qbint n30 inh_VSS inh_VSS) nch w=2u l=1u
+    M14 (n30 CKbb mout inh_VSS) nch w=2u l=1u
+    M13 (n20 CKbb net038 inh_VSS) nch w=2u l=1u
+    M12 (net038 mout inh_VSS inh_VSS) nch w=2u l=1u
+    M8 (mout n20 inh_VSS inh_VSS) nch w=2u l=1u
+    M7 (n20 CKb net25 inh_VSS) nch w=2u l=1u
+    M6 (net25 D inh_VSS inh_VSS) nch w=2u l=1u
+    M2 (CKbb CKb inh_VSS inh_VSS) nch w=2u l=1u
+    M1 (CKb CK inh_VSS inh_VSS) nch w=2u l=1u
+    M27 (QN net058 inh_VDD inh_VDD) pch w=4u l=1u
+    M25 (net058 qbint inh_VDD inh_VDD) pch w=4u l=1u
+    M23 (Q qbint inh_VDD inh_VDD) pch w=4u l=1u
+    M19 (n30 CKbb net054 inh_VDD) pch w=4u l=1u
+    M18 (net054 qbint inh_VDD inh_VDD) pch w=4u l=1u
+    M17 (qbint n30 inh_VDD inh_VDD) pch w=4u l=1u
+    M15 (n30 CKb mout inh_VDD) pch w=4u l=1u
+    M11 (n20 CKb net039 inh_VDD) pch w=4u l=1u
+    M10 (net039 mout inh_VDD inh_VDD) pch w=4u l=1u
+    M9 (mout n20 inh_VDD inh_VDD) pch w=4u l=1u
+    M5 (n20 CKbb net26 inh_VDD) pch w=4u l=1u
+    M4 (net26 D inh_VDD inh_VDD) pch w=4u l=1u
+    M3 (CKbb CKb inh_VDD inh_VDD) pch w=4u l=1u
+    M0 (CKb CK inh_VDD inh_VDD) pch w=4u l=1u
+ends DFFX1
+// End of subcircuit definition.
+
+// Library name: KALLHALL_STD_LIB3
+// Cell name: timing
+// View name: schematic
+I0 (net1 net2 VDD! VSS!) INVX1
+I1 (net3 net4 net5 VDD! VSS!) NOR2X1
+I2 (net6 net7 VDD! VSS!) BUFX2
+I3 (net8 net9 net10 VDD! VSS!) NAND2X1
+I4 (net011 net012 net013 net014 VDD! VSS!) DFFX1
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub
