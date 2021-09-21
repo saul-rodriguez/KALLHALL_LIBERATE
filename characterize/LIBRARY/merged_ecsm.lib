@@ -1,6 +1,6 @@
-library (home) {
-  /* Models written by Liberate 17.1.2.229 from Cadence Design Systems, Inc. on Tue Sep 21 14:32:41 CEST 2021 */
-  /* Library created by merging /home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/userdata.lib into /home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ecsm.lib */
+library (userdata) {
+  /* Models written by Liberate 17.1.2.229 from Cadence Design Systems, Inc. on Tue Sep 21 20:07:56 CEST 2021 */
+  /* Library created by merging /home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ecsm.lib into /home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/userdata.lib */
   comment : "";
   date : "$Date: Tue Sep 21 13:50:32 2021 $";
   revision : "1.0";
@@ -11,9 +11,6 @@ library (home) {
   pulling_resistance_unit : "1kohm";
   time_unit : "1ns";
   voltage_unit : "1V";
-  voltage_map (VDD, 1.5);
-  voltage_map (VSS, 0);
-  voltage_map (GND, 0);
   default_cell_leakage_power : 0;
   default_fanout_load : 1;
   default_max_transition : 20;
@@ -31,6 +28,9 @@ library (home) {
   slew_lower_threshold_pct_rise : 30;
   slew_upper_threshold_pct_fall : 70;
   slew_upper_threshold_pct_rise : 70;
+  voltage_map (GND, 0);
+  voltage_map (VDD, 1.5);
+  voltage_map (VSS, 0);
   operating_conditions (PVT_1P5V_25C) {
     process : 1;
     temperature : 25;
@@ -94,7 +94,7 @@ library (home) {
   cell (BUFX2) {
     ecsm_vtn : 0.35;
     ecsm_vtp : 0.35;
-    area : 0;
+    area : 560;
     cell_footprint : "BUFX2";
     cell_leakage_power : 25.1933;
     pg_pin (VDD) {
@@ -463,7 +463,7 @@ library (home) {
   cell (DFFX1) {
     ecsm_vtn : 0.35;
     ecsm_vtp : 0.35;
-    area : 0;
+    area : 2800;
     cell_footprint : "DFFX1";
     cell_leakage_power : 150.722;
     pg_pin (VDD) {
@@ -2164,7 +2164,7 @@ library (home) {
   cell (INVX1) {
     ecsm_vtn : 0.35;
     ecsm_vtp : 0.35;
-    area : 0;
+    area : 280;
     cell_footprint : "INVX1";
     cell_leakage_power : 12.5971;
     pg_pin (VDD) {
@@ -2533,7 +2533,7 @@ library (home) {
   cell (NAND2X1) {
     ecsm_vtn : 0.35;
     ecsm_vtp : 0.35;
-    area : 0;
+    area : 560;
     cell_footprint : "NAND2X1";
     cell_leakage_power : 21.2162;
     pg_pin (VDD) {
@@ -3528,7 +3528,7 @@ library (home) {
   cell (NOR2X1) {
     ecsm_vtn : 0.35;
     ecsm_vtp : 0.35;
-    area : 0;
+    area : 560;
     cell_footprint : "NOR2X1";
     cell_leakage_power : 22.5937;
     pg_pin (VDD) {
