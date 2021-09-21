@@ -1,5 +1,6 @@
-library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
-  /* Models written by Liberate 17.1.2.229 from Cadence Design Systems, Inc. on Tue Sep 21 13:53:48 CEST 2021 */
+library (userdata) {
+  /* Models written by Liberate 17.1.2.229 from Cadence Design Systems, Inc. on Tue Sep 21 14:32:41 CEST 2021 */
+  /* Library created by merging /home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs.lib into /home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/userdata.lib */
   comment : "";
   date : "$Date: Tue Sep 21 13:50:32 2021 $";
   revision : "1.0";
@@ -10,9 +11,6 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
   pulling_resistance_unit : "1kohm";
   time_unit : "1ns";
   voltage_unit : "1V";
-  voltage_map (VDD, 1.5);
-  voltage_map (VSS, 0);
-  voltage_map (GND, 0);
   default_cell_leakage_power : 0;
   default_fanout_load : 1;
   default_max_transition : 20;
@@ -30,6 +28,9 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
   slew_lower_threshold_pct_rise : 30;
   slew_upper_threshold_pct_fall : 70;
   slew_upper_threshold_pct_rise : 70;
+  voltage_map (GND, 0);
+  voltage_map (VDD, 1.5);
+  voltage_map (VSS, 0);
   operating_conditions (PVT_1P5V_25C) {
     process : 1;
     temperature : 25;
@@ -74,7 +75,8 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
   define(char_when, receiver_capacitance, string);
   define(is_propagating, receiver_capacitance, string);
   cell (BUFX2) {
-    area : 0;
+    area : 560;
+    cell_footprint : "BUFX2";
     cell_leakage_power : 25.1933;
     pg_pin (VDD) {
       pg_type : primary_power;
@@ -732,7 +734,8 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
     }
   }
   cell (DFFX1) {
-    area : 0;
+    area : 2800;
+    cell_footprint : "DFFX1";
     cell_leakage_power : 150.722;
     pg_pin (VDD) {
       pg_type : primary_power;
@@ -2091,118 +2094,6 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
           );
         }
       }
-      receiver_capacitance () {
-        when : "D";
-        is_propagating : true;
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0518625, 0.0526611, 0.0531045, 0.0537302, 0.0539587" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0701601, 0.0684078, 0.0676479, 0.0665472, 0.0662438" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0518625, 0.0526611, 0.0531045, 0.0537302, 0.0539587" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0701601, 0.0684078, 0.0676479, 0.0665472, 0.0662438" \
-          );
-        }
-      }
-      receiver_capacitance () {
-        when : "D";
-        is_propagating : true;
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0624034, 0.0638878, 0.0647291, 0.065753, 0.0661107" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0742082, 0.0767594, 0.0752773, 0.0736199, 0.0729686" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0517554, 0.0526546, 0.0530974, 0.0537275, 0.0539569" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0702369, 0.0683758, 0.0676956, 0.0666135, 0.0663376" \
-          );
-        }
-      }
-      receiver_capacitance () {
-        when : "!D";
-        is_propagating : true;
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0517613, 0.0526431, 0.0530773, 0.0537037, 0.0539338" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0701909, 0.068372, 0.0677422, 0.0666869, 0.0664231" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0517613, 0.0526431, 0.0530773, 0.0537037, 0.0539338" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0701909, 0.068372, 0.0677422, 0.0666869, 0.0664231" \
-          );
-        }
-      }
-      receiver_capacitance () {
-        when : "!D";
-        is_propagating : true;
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0624045, 0.0638879, 0.064729, 0.0657527, 0.0661102" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0742071, 0.0767584, 0.0752765, 0.0736181, 0.0729674" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0517596, 0.0526619, 0.0531034, 0.0537305, 0.0539591" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0702442, 0.0683626, 0.0676834, 0.066606, 0.0663318" \
-          );
-        }
-      }
       internal_power () {
         when : "(D * Q * !QN)";
         related_pg_pin : VDD;
@@ -2382,61 +2273,6 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
           );
         }
       }
-      receiver_capacitance () {
-        when : "CK";
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0608261, 0.0633529, 0.0643766, 0.0653817, 0.0656657" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0658546, 0.0704906, 0.0724392, 0.0738126, 0.0741216" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0516569, 0.0532558, 0.0539723, 0.0548686, 0.055168" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0699392, 0.0740693, 0.0759035, 0.0771524, 0.0772644" \
-          );
-        }
-      }
-      receiver_capacitance () {
-        when : "!CK";
-        is_propagating : true;
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0618852, 0.0632276, 0.0638698, 0.0647287, 0.0650659" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0679299, 0.0736323, 0.076803, 0.0765132, 0.0758613" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0510672, 0.051916, 0.0523084, 0.0529556, 0.0532216" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0676112, 0.070551, 0.070713, 0.0693649, 0.0689541" \
-          );
-        }
-      }
       internal_power () {
         when : "CK";
         related_pg_pin : VDD;
@@ -2509,7 +2345,8 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
     }
   }
   cell (INVX1) {
-    area : 0;
+    area : 280;
+    cell_footprint : "INVX1";
     cell_leakage_power : 12.5971;
     pg_pin (VDD) {
       pg_type : primary_power;
@@ -3167,7 +3004,8 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
     }
   }
   cell (NAND2X1) {
-    area : 0;
+    area : 560;
+    cell_footprint : "NAND2X1";
     cell_leakage_power : 21.2162;
     pg_pin (VDD) {
       pg_type : primary_power;
@@ -4441,33 +4279,6 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
       rise_capacitance_range (0.0601463, 0.0639287);
       fall_capacitance : 0.063634;
       fall_capacitance_range (0.0550782, 0.063634);
-      receiver_capacitance () {
-        when : "!B";
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0636773, 0.0650857, 0.0656312, 0.0662312, 0.0664054" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0750778, 0.0769998, 0.0774576, 0.0772778, 0.0771553" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0540866, 0.0555944, 0.0562373, 0.0568278, 0.0569855" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0725382, 0.0745135, 0.0752794, 0.0758857, 0.0760476" \
-          );
-        }
-      }
       internal_power () {
         when : "(!B * Y)";
         related_pg_pin : VDD;
@@ -4511,33 +4322,6 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
       rise_capacitance_range (0.0450269, 0.0634841);
       fall_capacitance : 0.0638103;
       fall_capacitance_range (0.043763, 0.0638103);
-      receiver_capacitance () {
-        when : "!A";
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0541666, 0.0550967, 0.0554265, 0.0556934, 0.0557603" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0511749, 0.0520646, 0.0522073, 0.0522572, 0.0522578" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0312504, 0.0320203, 0.032319, 0.0326105, 0.0326898" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.055309, 0.0557875, 0.0559763, 0.0560036, 0.0559918" \
-          );
-        }
-      }
       internal_power () {
         when : "(!A * Y)";
         related_pg_pin : VDD;
@@ -4573,7 +4357,8 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
     }
   }
   cell (NOR2X1) {
-    area : 0;
+    area : 560;
+    cell_footprint : "NOR2X1";
     cell_leakage_power : 22.5937;
     pg_pin (VDD) {
       pg_type : primary_power;
@@ -5847,33 +5632,6 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
       rise_capacitance_range (0.0588562, 0.0637326);
       fall_capacitance : 0.0635406;
       fall_capacitance_range (0.0567609, 0.0635406);
-      receiver_capacitance () {
-        when : "B";
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0621743, 0.0646278, 0.0655557, 0.0663441, 0.0665485" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0661819, 0.0699614, 0.0715989, 0.0730995, 0.0735173" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0529322, 0.0540407, 0.0545132, 0.0552193, 0.0554665" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0740039, 0.0767065, 0.0781983, 0.0788316, 0.0787579" \
-          );
-        }
-      }
       internal_power () {
         when : "(B * !Y)";
         related_pg_pin : VDD;
@@ -5917,33 +5675,6 @@ library (/home/saul/projects/KALLHALL_LIBERATE/characterize/LIBRARY/ship_ccs) {
       rise_capacitance_range (0.0281766, 0.0641413);
       fall_capacitance : 0.0625603;
       fall_capacitance_range (0.0289596, 0.0625603);
-      receiver_capacitance () {
-        when : "A";
-        receiver_capacitance1_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0206296, 0.0209928, 0.0211232, 0.021237, 0.021266" \
-          );
-        }
-        receiver_capacitance2_rise (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0346188, 0.0345833, 0.0345909, 0.0345658, 0.0345571" \
-          );
-        }
-        receiver_capacitance1_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0345492, 0.0350104, 0.0351696, 0.0352981, 0.0353299" \
-          );
-        }
-        receiver_capacitance2_fall (receiver_cap_power_template_5x5) {
-          index_1 ("0.25, 0.5, 0.75, 1.25, 1.5");
-          values ( \
-            "0.0313763, 0.0314937, 0.031488, 0.0314575, 0.0314447" \
-          );
-        }
-      }
       internal_power () {
         when : "(A * !Y)";
         related_pg_pin : VDD;

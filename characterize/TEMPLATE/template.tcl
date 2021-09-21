@@ -53,13 +53,13 @@ define_cell \
 }
 
 
-if {[ALAPI_active_cell "BUFFX2"]} {
+if {[ALAPI_active_cell "BUFX2"]} {
 define_cell \
     -input { A } -output { Y } -pinlist { A Y } \
         -constraint  constraint_template_3x3    \
         -delay       delay_template_5x5 \
         -power       power_template_5x5 \
-    BUFFX2
+    BUFX2
 
 }
 
